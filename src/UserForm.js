@@ -1,4 +1,4 @@
-import { colors, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { useState } from "react";
 
 const UserForm = props => {

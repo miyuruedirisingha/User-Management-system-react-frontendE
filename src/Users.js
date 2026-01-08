@@ -31,6 +31,7 @@ const Users = () => {
     }
 
     const addUser = (data) => {
+        console.log("Add User called with:", data);
         setSubmitted(true);
 
         const payload = {
@@ -38,13 +39,18 @@ const Users = () => {
             name: data.name
         };
 
+        console.log("Sending create request with payload:", payload);
+
         Axios.post("http://localhost:3001/api/createuser", payload)
-            .then(() => {
+            .then((response) => {
+                console.log("Add user response:", response.data);
                 getUsers();
                 setSubmitted(false);
             })
             .catch(error => {
                 console.error("There was an error adding the user!", error);
+                alert("Error adding user: " + error.message);
+                setSubmitted(false);
             });
     }
 
